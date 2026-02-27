@@ -1,4 +1,4 @@
-# Frontend Project – Staff Dashboard & Client Management
+# Staff Dashboard & Client Management
 
 ## Overview
 This project is a frontend application for staff and client management in a firm. It includes authentication, dynamic forms, dashboard management, and secure routing.
@@ -58,3 +58,4 @@ This project is a frontend application for staff and client management in a firm
 - CSS/SCSS
 - REST APIs
 - Local Storage for session management
+
