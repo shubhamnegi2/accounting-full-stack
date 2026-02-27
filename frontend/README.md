@@ -1,61 +1,38 @@
-# Staff Dashboard & Client Management
+# Frontend Functionality – My Work
 
-## Overview
-This project is a frontend application for staff and client management in a firm. It includes authentication, dynamic forms, dashboard management, and secure routing.
+## 1. Authentication & Routing
 
----
+I started with the login page. First, I built the UI and implemented form validation. Then I integrated the login API: I showed proper error messages for failed login attempts, and when login succeeded, I stored the token, user ID, and email in local storage.
 
-## Features
+After that, I set up routing:
 
-### 1. Authentication & Routing
-- **Login Page**
-  - Built UI with form validation using React and Formik.
-  - Integrated login API with proper error handling.
-  - On successful login, stored token, user ID, and email in local storage.
-- **Routing**
-  - Configured **public routes** (e.g., Login page).
-  - Configured **protected routes** (e.g., Dashboard).
-  - Implemented redirect logic for logged-in users accessing the login page.
+- Public routes for pages like login.
+- Protected routes for the dashboard.
+- I also implemented redirect logic so that if a logged-in user tries to access the login page again, they are redirected to the dashboard automatically.
 
----
+## 2. Dashboard (Staff)
 
-### 2. Dashboard (Staff)
-- **UI & Navigation**
-  - Designed dashboard and firm management interface.
-  - Implemented logout functionality to clear local storage and state.
-- **Firm Details Form**
-  - Form includes all required fields and multi-select options.
-  - Validation handled via Formik and Yup.
-  - API integration to save firm details linked to the staff ID.
-- **Data Display**
-  - Dynamic table showing saved firm details.
-  - Real-time status updates for each record.
+Once login was working, I moved to the dashboard:
 
----
+- I created the UI for the dashboard and firm management.
+- Implemented logout functionality to remove user details from local storage and state.
+- Built a firm details form with all required fields and multi-select options.
+- Used Formik and Yup for form validation.
+- On form submission, I called the API to save the data in the database, linking it to the staff ID.
+- I also displayed the saved details in a table on the dashboard, including the status of each record.
 
-### 3. Client Page
-- **Authentication**
-  - Reused the authentication token for client API calls.
-- **Dynamic Form**
-  - Fields generated dynamically based on requested documents.
-  - Validation and file upload functionality included.
-  - Submitted data is associated with the requesting staff member.
+## 3. Client Page
 
----
+After the dashboard, I created a client page:
 
-### 4. Additional Features
-- State management for login and dashboard data.
-- Graceful API error handling across all pages.
-- Dynamic dashboard table updates with new data.
-- Route protection to prevent unauthorized access.
+- I reused the authentication token for the client.
+- Built a form dynamically with fields based on the requested documents.
+- Implemented validation and file upload functionality.
+- Submitted data is saved and associated with the requesting staff member.
 
----
-
-## Tech Stack
-- React.js
-- Formik & Yup
-- JavaScript (ES6+)
-- CSS/SCSS
-- REST APIs
-- Local Storage for session management
-
+## 4. Additional Work
+- Make real Api in PHP Mysql with the help of AI
+- I ensured state management for login and dashboard data.
+- Handled API errors gracefully on all pages.
+- Made the dashboard table dynamic so it updates when new data is added.
+- Ensured proper flow and protection of routes, preventing unauthorized access.
