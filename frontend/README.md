@@ -1,4 +1,4 @@
-# Frontend Functionality – My Work
+# Staff Dashboard & Client Management
 
 ## 1. Authentication & Routing
 
@@ -36,3 +36,4 @@ After the dashboard, I created a client page:
 - Handled API errors gracefully on all pages.
 - Made the dashboard table dynamic so it updates when new data is added.
 - Ensured proper flow and protection of routes, preventing unauthorized access.
+
