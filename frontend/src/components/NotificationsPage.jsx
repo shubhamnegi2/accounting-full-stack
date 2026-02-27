@@ -6,10 +6,9 @@ export default function NotificationsPage({ onClose }) {
   const handleClose = () => {
     setIsClosing(true);
 
-    // Wait for animation to finish before unmount
     setTimeout(() => {
       onClose();
-    }, 300); // same duration as animation
+    }, 300); 
   };
 
   return (

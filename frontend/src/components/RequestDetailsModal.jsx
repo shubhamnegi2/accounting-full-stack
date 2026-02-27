@@ -12,12 +12,12 @@ export default function RequestDetailsModal({ isOpen, onClose, request }) {
       .catch(() => alert("Failed to copy link."));
   };
 
-  const handleShare = () => {
-    const url = encodeURIComponent(clientLink);
-    const text = encodeURIComponent(`Please upload your documents here:`);
-    // Open WhatsApp share as example
-    window.open(`https://api.whatsapp.com/send?text=${text}%20${url}`, "_blank");
-  };
+  // const handleShare = () => {
+  //   const url = encodeURIComponent(clientLink);
+  //   const text = encodeURIComponent(`Please upload your documents here:`);
+  //   // Open WhatsApp share as example
+  //   window.open(`https://api.whatsapp.com/send?text=${text}%20${url}`, "_blank");
+  // };
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
@@ -47,7 +47,6 @@ export default function RequestDetailsModal({ isOpen, onClose, request }) {
           ))}
         </ul>
 
-        {/* Client Link Section */}
         {request.status !== "Completed" && (
           <div className="mt-6">
             <label className="block mb-2 font-medium">Client Upload Link:</label>

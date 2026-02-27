@@ -36,7 +36,7 @@ export default function Dashboard() {
   const limit = 10;
   const fetchRequests = async (page = 1, staffId) => {
     try {
-      if (!staffId) return; // safety check
+      if (!staffId) return;
 
       const res = await fetch(
         `${apiUrl}/get-all-requests.php?page=${page}&staff_id=${staffId}`
@@ -50,8 +50,6 @@ export default function Dashboard() {
       console.error("Failed to fetch requests", err);
     }
   };
-
-  // Get staffId from localStorage
 
   useEffect(() => {
     fetchRequests(currentPage, staffId);
@@ -156,6 +154,7 @@ export default function Dashboard() {
           <button
             onClick={() => {
               localStorage.removeItem("staffToken");
+              localStorage.removeItem("staffId");
               window.location = "/login";
             }}
             className="px-4 py-2 bg-red-600 text-white rounded-lg"

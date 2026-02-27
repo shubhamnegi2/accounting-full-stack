@@ -40,39 +40,38 @@ export default function Login() {
         setErrors({});
         setLoading(true);
 
-     try {
-    setLoading(true);
+        try {
+            setLoading(true);
 
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
+            const formData = new FormData();
+            formData.append("email", email);
+            formData.append("password", password);
 
-    const res = await fetch(`${apiUrl}/login.php`, {
-        method: "POST",
-        body: formData
-    });
+            const res = await fetch(`${apiUrl}/login.php`, {
+                method: "POST",
+                body: formData
+            });
 
-    const data = await res.json();
+            const data = await res.json();
 
-    if (!res.ok || !data.staffToken || !data.staffId) {
-        setApiError(data.error || "Invalid email or password");
-        setLoading(false);
-        return;
-    }
+            if (!res.ok || !data.staffToken || !data.staffId) {
+                setApiError(data.error || "Invalid email or password");
+                setLoading(false);
+                return;
+            }
 
-    // Save token and staff ID
-    localStorage.setItem("staffToken", data.staffToken);
-    localStorage.setItem("staffId", data.staffId);
-    localStorage.setItem("staffEmail", email);
+            localStorage.setItem("staffToken", data.staffToken);
+            localStorage.setItem("staffId", data.staffId);
+            localStorage.setItem("staffEmail", email);
 
-    alert("Login successful");
-    navigate("/dashboard");
-} catch (err) {
-    console.error("Network error", err);
-    alert("Network error. Please try again.");
-} finally {
-    setLoading(false);
-}
+            alert("Login successful");
+            navigate("/dashboard");
+        } catch (err) {
+            console.error("Network error", err);
+            alert("Network error. Please try again.");
+        } finally {
+            setLoading(false);
+        }
 
         setLoading(false);
     };

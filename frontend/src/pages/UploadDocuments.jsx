@@ -14,7 +14,7 @@ export default function UploadDocuments() {
     const [errors, setErrors] = useState([]);
     const [loading, setLoading] = useState(true);
     const [submitStatus, setSubmitStatus] = useState("");
-    const [justUploaded, setJustUploaded] = useState(false); // ✅ important
+    const [justUploaded, setJustUploaded] = useState(false);
 
     const allowedTypes = [
         "application/pdf",
@@ -64,7 +64,6 @@ export default function UploadDocuments() {
             });
     }, [staffToken]);
 
-    // FILE VALIDATION
     const handleFileChange = (e, idx) => {
         const file = e.target.files[0];
         const updatedFiles = [...selectedFiles];
@@ -88,7 +87,6 @@ export default function UploadDocuments() {
         setErrors(updatedErrors);
     };
 
-    // SUBMIT
     const handleSubmit = (e) => {
         e.preventDefault();
 
@@ -117,7 +115,7 @@ export default function UploadDocuments() {
                 } else {
                     setSubmitStatus(
                         "Upload failed: " +
-                            (data.errors ? data.errors.join(", ") : "")
+                        (data.errors ? data.errors.join(", ") : "")
                     );
                 }
             })
@@ -126,9 +124,7 @@ export default function UploadDocuments() {
             });
     };
 
-    // --------------------
-    // RENDER LOGIC
-    // --------------------
+
 
     if (loading)
         return <div className="p-6 text-center">Loading...</div>;
@@ -140,7 +136,6 @@ export default function UploadDocuments() {
             </div>
         );
 
-    // ✅ Case 1: Just uploaded (no refresh)
     if (justUploaded) {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -153,7 +148,6 @@ export default function UploadDocuments() {
         );
     }
 
-    // ✅ Case 2: Already completed (after refresh or revisit)
     if (requestData.status === "Completed") {
         return (
             <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -166,7 +160,6 @@ export default function UploadDocuments() {
         );
     }
 
-    // NORMAL FORM
     return (
         <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
             <div className="bg-white w-full max-w-3xl p-8 rounded-2xl shadow-xl">
